@@ -3,6 +3,7 @@
 
 ## This repo extends the Uber JVM profiler and comes with an executor ID TAG for better analysis of data using influx & Grafana, Feel free to buzz me if you find any issues.  
 
+Blog Link: https://github.com/dataholic99/jvm-profiler-executorid-tag
 
 [![Build Status](https://api.travis-ci.org/uber-common/jvm-profiler.svg)](https://travis-ci.org/uber-common/jvm-profiler/)
 
