@@ -75,7 +75,8 @@ public class MethodArgumentProfiler extends ProfilerBase implements Profiler {
             commonMap.put("host", getHostName());
             commonMap.put("processUuid", getProcessUuid());
             commonMap.put("appId", getAppId());
-
+            commonMap.put("executorId", getExecutorId());
+            
             commonMap.put("className", entry.getKey().getClassName());
             commonMap.put("methodName", entry.getKey().getMethodName());
 

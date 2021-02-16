@@ -66,6 +66,7 @@ public class InfluxDBOutputReporter implements Reporter {
                 .time(System.currentTimeMillis(), TimeUnit.MILLISECONDS)
                 .fields(formattedMetrics)
                 .tag("processUuid", (String)metrics.get("processUuid"))
+                .tag("executorId", (String)metrics.get("executorId"))
                 .build();
         // BatchPoints
         BatchPoints batchPoints = BatchPoints.database(database)
