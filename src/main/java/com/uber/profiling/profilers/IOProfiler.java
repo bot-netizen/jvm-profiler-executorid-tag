@@ -67,7 +67,8 @@ public class IOProfiler extends ProfilerBase implements Profiler {
         map.put("host", getHostName());
         map.put("processUuid", getProcessUuid());
         map.put("appId", getAppId());
-
+        map.put("executorId", getExecutorId());
+        
         if (getTag() != null) {
             map.put("tag", getTag());
         }
