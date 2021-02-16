@@ -32,7 +32,8 @@ public class ProfilerBase {
 
     private String jobId = null;
     private String appId = null;
-
+    private String executorID = null;
+    
     private String role = null;
     
     public ProfilerBase() {
@@ -101,6 +102,20 @@ public class ProfilerBase {
         this.appId = appId;
     }
 
+    
+    public String getExecutorId() {
+        if (executorID != null && !executorID.isEmpty()) {
+            return executorID;
+        }
+
+        executorID = SparkUtils.getSparkEnvExecutorId();
+        return executorID;
+    }
+
+    public void setExecutorId(String executorID) {
+        this.executorID = executorID;
+    }
+    
     public void setRole(String role) {
         this.role = role;
     }
