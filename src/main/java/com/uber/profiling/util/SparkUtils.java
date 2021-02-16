@@ -69,6 +69,32 @@ public class SparkUtils {
         }
     }
 
+    // Get application ID by invoking SparkEnv
+    public static String getSparkEnvExecutorId() {
+        // Do not use "org.apache.spark.SparkEnv" directly because the maven shade plugin will convert
+        // the class name to ja_shaded.org.apache.spark.SparkEnv due to relocation.
+        String className = org.apache.commons.lang3.StringUtils.joinWith(
+                ".",
+                "org",
+                "apache",
+                "spark",
+                "SparkEnv");
+        try {
+            Object result = ReflectionUtils.executeStaticMethods(
+                    className,
+                    "get.executorId");
+
+            if (result == null) {
+                return null;
+            }
+
+            return result.toString();
+        } catch (Throwable e) {
+            return null;
+        }
+    }
+    
+    
     public static String probeRole(String cmdline) {
         if (ProcessUtils.isSparkExecutor(cmdline)) {
             return Constants.EXECUTOR_ROLE;
